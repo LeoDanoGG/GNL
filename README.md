@@ -1,6 +1,6 @@
 *This project has been created as part of the 42 curriculum by legomez.*
 
-# get_next_line
+# Get_Next_Line
 
 <img src="https://skillicons.dev/icons?i=c&theme=dark" width="150"/> 
 
@@ -69,13 +69,13 @@ File content `hello\nworld\n` with `BUFFER_SIZE=4`:
 
 ### Responsibilities of each function
 
-| Function       | Responsibility                                              |
-| -------------- | ----------------------------------------------------------- |
-| `take_bytes`   | One `read` into a freshly allocated buffer; `NULL` on EOF/error |
-| `fill_stack`   | Accumulates reads in the stack until a `\n` or EOF          |
-| `build_line`   | Extracts the line to return from the stack                  |
-| `save_stack`   | Keeps only the leftover after the returned line             |
-| `get_next_line`| Validates arguments, initializes the stack and coordinates the rest |
+| Function      	| Responsibility                                          		   		|
+| ----------------- | ---------------------------------------------------------------		|
+| `take_bytes`		| One `read` into a freshly allocated buffer; `NULL` on EOF/error 		|
+| `fill_stack`   	| Accumulates reads in the stack until a `\n` or EOF 					|
+| `build_line`  	| Extracts the line to return from the stack                			|
+| `save_stack`   	| Keeps only the leftover after the returned line         				|
+| `get_next_line`	| Validates arguments, initializes the stack and coordinates the rest	|
 
 ### Memory management
 
