@@ -2,6 +2,8 @@
 
 # get_next_line
 
+<img src="https://skillicons.dev/icons?i=c&theme=dark" width="150"/> 
+
 ## Description
 
 `get_next_line` is a C function that reads a file descriptor and returns its
