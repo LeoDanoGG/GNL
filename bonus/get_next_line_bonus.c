@@ -6,7 +6,7 @@
 /*   By: legomez <legomez@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 09:49:55 by legomez           #+#    #+#             */
-/*   Updated: 2026/10/19 15:19:54 by legomez          ###   ########.fr       */
+/*   Updated: 2026/10/20 13:31:52 by legomez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*get_next_line(int fd)
 	static char	*stack[FDS];
 	char		*line;
 
-	if (fd < 0 || (FDS < 0 || FDS > 1024) || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (!stack[fd])
 	{
