@@ -122,6 +122,31 @@ File content `hello\nworld\n` with `BUFFER_SIZE=4`:
 - **Single file descriptor.** The mandatory part uses one static stack, so
   interleaving reads from different file descriptors would mix their data.
 
+## >> Bonus Part: Multiple File Descriptors <<
+
+The bonus part extends `get_next_line` to handle **multiple file descriptors simultaneously** without losing the reading thread of each descriptor.
+
+### Key differences
+
+- **Static Array:** Instead of a single static pointer `static char *stack`, we use an array of static pointers indexed by the file descriptor:
+
+  ```c
+  /* FDS in the header */
+  #ifndef FDS
+  # define FDS 1024
+  #endif
+
+  static char *stack[FDS]; // now stack is an array
+  ```
+
+- Independent Reading: Calling get_next_line(fd_1), then get_next_line(fd_2), and then get_next_line(fd_1) again preserves the leftover buffer for both file descriptors independently
+- Safety check: The function validates that fd is within the valid range (0 <= fd < FDS) before attempting to read or access the array.
+- Files (Bonus)
+  - `get_next_line_bonus.c` -> GNL with multi-fd support and helper functions
+  - `get_next_line_utils_bonus.c` -> Helper string functions for the bonus implementation
+  - `get_next_line_bonus.h` -> Prototypes, includes, BUFFER_SIZE, and FDS definition
+
+
 ## Instructions
 
 ### Compilation
